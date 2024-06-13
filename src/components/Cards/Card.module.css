@@ -1,0 +1,46 @@
+.card {
+  width: 400px;
+  background-color: rgb(58, 57, 57);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  opacity: 0.8;
+  position: relative;
+  transition: transform 0.3s ease-in-out, z-index 0.3s ease-in-out;
+}
+
+.card:hover {
+  opacity: 1;
+}
+
+.figcaption {
+  padding: 10px;
+  text-align: start;
+}
+
+.btn {
+  display: flex;
+  justify-content: start;
+  padding: 10px 20px;
+  background-color: #e6964b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.btn:hover {
+  background-color: #e64b4b;
+}
+
+.cardTitle {
+  padding-bottom: 20px;
+}
+
+.card.active {
+  z-index: 999; 
+  transform: scale(1.2); 
+
+}
