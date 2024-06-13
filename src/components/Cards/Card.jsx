@@ -1,6 +1,13 @@
 import PropTypes from 'prop-types';
 import cardStyle from './Card.module.css';
 
+const tagColors = {
+  html: 'green',
+  css: 'pink',
+  js: 'yellow',
+  php: 'blue',
+};
+
 const Card = ({ title, content, image, tags, published }) => {
   return (
     published && (
@@ -17,10 +24,12 @@ const Card = ({ title, content, image, tags, published }) => {
           </figcaption>
         </figure>
         <ul className={cardStyle.tags}>
-          {tags.map((tag, i) => (
-            <li key={`tag${i}`}>{tag}</li>
-          ))}
-        </ul>
+        {tags.map((tag, i) => (
+          <li key={`tag${i}`} style={{ color: tagColors[tag] || 'white' }}>
+            {tag}
+          </li>
+        ))}
+      </ul>
         <button className={cardStyle.btn}>
           <h4>Leggi di più</h4>
         </button>
