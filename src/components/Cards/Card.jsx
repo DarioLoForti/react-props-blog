@@ -13,11 +13,11 @@ const Card = ({ title, content, image, tags, published }) => {
     published && (
       <div className={cardStyle.card}>
         <figure>
-          {image === "" ? (
+          {image === "" ? 
             <img src="https://picsum.photos/400/200" alt="Placeholder" />
-          ) : (
+           : 
             <img src={image} alt={title} />
-          )}
+          }
           <figcaption className={cardStyle.figcaption}>
             <h2 className={cardStyle.cardTitle}>{title}</h2>
             <p>{content}</p>
