@@ -6,8 +6,6 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   opacity: 0.8;
-  position: relative;
-  transition: transform 0.3s ease-in-out, z-index 0.3s ease-in-out;
 }
 
 .card:hover {
@@ -39,8 +37,12 @@
   padding-bottom: 20px;
 }
 
-.card.active {
-  z-index: 999; 
-  transform: scale(1.2); 
-
+.tags{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+li {
+  padding: 5px;
+  margin: 5px;
 }

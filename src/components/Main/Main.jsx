@@ -13,6 +13,7 @@ const Main = () => {
           content={p.content} 
           image={p.image}
           tags={p.tags}
+          published={p.published}
           />
         })
        }

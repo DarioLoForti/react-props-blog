@@ -1,37 +1,40 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 import cardStyle from './Card.module.css';
 
-const Card = ({title, content, image, tags}) => {
-
-
+const Card = ({ title, content, image, tags, published }) => {
   return (
-    <div className={cardStyle.card}>
-      <figure>
-        <img src={image} alt="" />
-        <figcaption className={cardStyle.figcaption}>
-          <h2 className={cardStyle.cardTitle}>{title}</h2>
-          <p>{content}</p>
-        </figcaption>
-      </figure>
-      <ul>
-        {tags.map((tag, i) => {
-          return <li key={`tag${i}`}>{tag}</li>;
-        })}
-      </ul>
-      <button className={cardStyle.btn}>
-        <h4>Leggi di più</h4>
-      </button>
-    </div>
+    published && (
+      <div className={cardStyle.card}>
+        <figure>
+          {image === "" ? (
+            <img src="https://picsum.photos/400/200" alt="Placeholder" />
+          ) : (
+            <img src={image} alt={title} />
+          )}
+          <figcaption className={cardStyle.figcaption}>
+            <h2 className={cardStyle.cardTitle}>{title}</h2>
+            <p>{content}</p>
+          </figcaption>
+        </figure>
+        <ul className={cardStyle.tags}>
+          {tags.map((tag, i) => (
+            <li key={`tag${i}`}>{tag}</li>
+          ))}
+        </ul>
+        <button className={cardStyle.btn}>
+          <h4>Leggi di più</h4>
+        </button>
+      </div>
+    )
   );
 };
 
 Card.propTypes = {
-    title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    tags: PropTypes.array.isRequired,
-    published: PropTypes.string.isRequired
-  };
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  published: PropTypes.bool.isRequired,
+};
 
 export default Card;
