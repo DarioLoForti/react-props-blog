@@ -2,6 +2,13 @@ import mainStyle from "./Main.module.css";
 import Card from "../Cards/Card";
 import posts from "../../data/posts.js";
 
+const tagColors = {
+  html: 'green',
+  css: 'pink',
+  js: 'yellow',
+  php: 'blue',
+};
+
 const Main = () => {
 
   const distinctTags = [...new Set(posts.flatMap(post => post.tags))];
@@ -26,9 +33,9 @@ const Main = () => {
 
        <div className={mainStyle.button}>
         <h2>Tags</h2>
-        <ul>
+        <ul className={mainStyle.tags}>
           {distinctTags.map((tag, i) => (
-            <li key={`tag${i}`}>{tag}</li>
+            <li key={`tag${i}`} style={{ color: tagColors[tag] || 'black' }}>{tag}</li>
           ))}
         </ul>
        </div>
